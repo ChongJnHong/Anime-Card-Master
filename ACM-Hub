@@ -483,3 +483,33 @@ local Button = MainTab:CreateButton({
         game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))              
     end
 })
+
+local Divider = MainTab:CreateDivider()
+
+_G.RankInstant = true
+
+-- Functions
+
+function instantC()
+    while _G.RankInstant == true do
+        local args = {
+            [1] = "CardRank"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))               
+        wait(0.0001) 
+    end
+end
+
+
+local Toggle = MainTab:CreateToggle({
+    Name = "Instant Rank",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        _G.RankInstant = Value
+        instantC()
+    end
+ })
+
+ local Paragraph = MainTab:CreateParagraph({Title = "How It Works", Content = "This is dependant on your team, it will instantly fight ranked battles ALSO does battlepass which you'll max pretty fast."})
