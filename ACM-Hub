@@ -432,7 +432,7 @@ local Button = TeleportsTab:CreateButton({
 
 local Divider = MainTab:CreateDivider()
 
-local Paragraph = MainTab:CreateParagraph({Title = "How It Works", Content = "Head to packs and find the card you want to dupe, look for the # and the number after on the cards image than input it into the box."})
+local Paragraph = MainTab:CreateParagraph({Title = "Guide", Content = "Head to packs and find the card you want to dupe, look for the # and the number after on the cards image than input it into the box."})
 
 
 -- Variable to store the input value
@@ -513,3 +513,36 @@ local Toggle = MainTab:CreateToggle({
  })
 
  local Paragraph = MainTab:CreateParagraph({Title = "How It Works", Content = "This is dependant on your team, it will instantly fight ranked battles ALSO does battlepass which you'll max pretty fast."})
+
+ local TrollingTab = Window:CreateTab("Trolling", 4483362458) -- Title, Image
+
+ _G.AutoInstant = true
+
+-- Functions
+
+function instantX()
+    while _G.AutoInstant == true do
+        local args = {
+            [1] = "AgreeRequest"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("PlayerReplicated"):FireServer(unpack(args))                       
+        wait(0.0001) 
+    end
+end
+
+
+local Toggle = TrollingTab:CreateToggle({
+    Name = "Force Accept",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        _G.AutoInstant = Value
+        instantX()
+    end
+ })
+
+ local Paragraph = TrollingTab:CreateParagraph({Title = "To get started", Content = "Send a fight request by clicking on the user on the leaderboard and press challenge, once done turn on Force Accept. Beaware that if the user is not currently in the game you may SOFTLOCK yourself."})
+
+ local Paragraph = TrollingTab:CreateParagraph({Title = "Side Note", Content = "IF the other user wins, this will spam them with luck pots like crazy and vice versa"})
+
