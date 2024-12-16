@@ -34,6 +34,13 @@ local Window = Rayfield:CreateWindow({
     }
  })
 
+ Rayfield:Notify({
+    Title = "Announcement",
+    Content = "Made by Tensei#0227 Enjoy!",
+    Duration = 12,
+    Image = 4483362458,
+ })
+
  local MainTab = Window:CreateTab("Main", 4483362458) -- Title, Image
 
  local SettingsTab = Window:CreateTab("Settings", 4483362458) -- Title, Image
@@ -432,7 +439,7 @@ local Button = TeleportsTab:CreateButton({
 
 local Divider = MainTab:CreateDivider()
 
-local Paragraph = MainTab:CreateParagraph({Title = "Guide", Content = "Head to packs and find the card you want to dupe, look for the # and the number after on the cards image than input it into the box."})
+local Paragraph = MainTab:CreateParagraph({Title = "How It Works", Content = "Head to packs and find the card you want to dupe, look for the # and the number after on the cards image than input it into the box."})
 
 
 -- Variable to store the input value
