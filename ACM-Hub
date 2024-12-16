@@ -1,0 +1,485 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "Anime Card Master HUB",
+    Icon = 0, -- Icon in Topbar. Can use Lucide Icons (string) or Roblox Image (number). 0 to use no icon (default).
+    LoadingTitle = "Anime Card Master HUB",
+    LoadingSubtitle = "Secure Your Remotes!",
+    Theme = "Default", -- Check https://docs.sirius.menu/rayfield/configuration/themes
+ 
+    DisableRayfieldPrompts = false,
+    DisableBuildWarnings = false, -- Prevents Rayfield from warning when the script has a version mismatch with the interface
+ 
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Big Hub"
+    },
+ 
+    Discord = {
+       Enabled = false, -- Prompt the user to join your Discord server if their executor supports it
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+ 
+    KeySystem = false, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided", -- Use this to tell the user how to get a key
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+ local MainTab = Window:CreateTab("Main", 4483362458) -- Title, Image
+
+ local SettingsTab = Window:CreateTab("Settings", 4483362458) -- Title, Image
+
+ local PotionsTab = Window:CreateTab("Potions", 4483362458) -- Title, Image
+
+ local CoinsTab = Window:CreateTab("Coins", 4483362458) -- Title, Image
+
+ local FloorsTab = Window:CreateTab("Floors", 4483362458) -- Title, Image
+
+ local TeleportsTab = Window:CreateTab("Teleports", 4483362458) -- Title, Image
+ 
+ local Button = SettingsTab:CreateButton({
+    Name = "Destroy",
+    Callback = function()
+        Rayfield:Destroy()
+    -- The function that takes place when the button is pressed
+    end,
+ })
+
+-- Variable to store the input value
+local inputValue = 0  -- Default to 0 until user inputs a value
+
+-- Create the Input field for user input
+local Input = PotionsTab:CreateInput({
+    Name = "Amount",
+    CurrentValue = "",
+    PlaceholderText = "Input",
+    RemoveTextAfterFocusLost = false,
+    Flag = "Input1",
+    Callback = function(Text)
+        -- The function that takes place when the input is changed
+        -- The variable (Text) is a string for the value in the text box
+        -- Convert the input text to a number and store it in inputValue
+        inputValue = tonumber(Text) or 0  -- Default to 0 if input is not a valid number
+    end,
+})
+
+local Label = PotionsTab:CreateLabel("Allows The Purchase OF Robux Potions!", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Luck Potion I",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1001,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Luck Potion II",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1002,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Luck Potion III",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1003,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Quality Potion I",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1004,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Quality Potion II",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1005,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Quality Potion III",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1006,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Luck Potion Super",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1007,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+-- Create the Luck Potion I button
+local Button = PotionsTab:CreateButton({
+    Name = "Quality Potion Super",
+    Callback = function()
+        -- Create the arguments to send
+        local args = {
+            [1] = "BuyItem",
+            [2] = 1008,
+            [3] = inputValue,  -- Use the value stored in inputValue
+            [4] = "PotionShopData"
+        }
+                
+        -- Send the event to the server with the updated args
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+
+ local ColorPicker = SettingsTab:CreateColorPicker({
+    Name = "Color Picker",
+    Color = Color3.fromRGB(255,255,255),
+    Flag = "ColorPicker1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        -- The function that takes place every time the color picker is moved/changed
+        -- The variable (Value) is a Color3fromRGB value based on which color is selected
+    end
+})
+
+
+
+
+
+
+
+-- CLEAN
+
+-- Variable to store the input value
+local inputValue1 = 0  -- Default to 0 until user inputs a value
+
+-- Create the Input field for user input
+local Input = CoinsTab:CreateInput({
+    Name = "Amount",
+    CurrentValue = "",
+    PlaceholderText = "Input",
+    RemoveTextAfterFocusLost = false,
+    Flag = "Input1",
+    Callback = function(Text)
+        -- The function that takes place when the input is changed
+        -- The variable (Text) is a string for the value in the text box
+        -- Convert the input text to a number and store it in inputValue
+        inputValues1 = tonumber(Text) or 0  -- Default to 0 if input is not a valid number
+    end,
+})
+
+
+
+local Label = CoinsTab:CreateLabel("You Need Straw Hat For This To Work", 4483362458, Color3.fromRGB(255, 255, 255), false) -- Title, Icon, Color, IgnoreTheme
+
+local Button = CoinsTab:CreateButton({
+    Name = "Give",
+    Callback = function()
+        local args = {
+            [1] = "SellCard",
+            [2] = 1001,
+            [3] = -inputValues1
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+local Button = CoinsTab:CreateButton({
+    Name = "Sell",
+    Callback = function()
+        local args = {
+            [1] = "SellCard",
+            [2] = 1001,
+            [3] = inputValues1
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+    end,
+})
+
+local Paragraph = CoinsTab:CreateParagraph({Title = "How To Use", Content = "You want to give yourself ALOT of Straw Hat cards which after giving yourself it, your money will be 0. After sell that amount -- IF you aren't making more than you had, you aren't giving yourself enough"})
+
+local Paragraph = CoinsTab:CreateParagraph({Title = "Warning", Content = "If you give yourself INF ( math.huge ) you will SOFTLOCK yourself and be unable to enter your packs"})
+
+-- CLEAN
+
+-- Values
+
+_G.Instant = true
+
+-- Functions
+
+function instant()
+    while _G.Instant == true do
+        local args = {
+            [1] = "ChallengeFloor"
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))       
+        wait(0.0001) 
+    end
+end
+
+
+local Toggle = FloorsTab:CreateToggle({
+    Name = "Instant Fight",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+        _G.Instant = Value
+        instant()
+    end
+ })
+
+ local Paragraph = FloorsTab:CreateParagraph({Title = "How It Works", Content = "This will instantly Attempt the current floor, IF you are strong enough to complete it YOU will reach higher floors."})
+
+ local Paragraph = FloorsTab:CreateParagraph({Title = "Note", Content = "This will depend on your team :)"})
+
+ -- Values
+_G.autoTap  = true
+
+ -- Functions
+
+ function autoTap()
+    while _G.autoTap == true do
+        local args = {
+            [1] = "DrawCard",
+            [2] = true
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
+        wait(0.0001)
+    end
+end
+
+ -- Toggles
+ local Toggle = MainTab:CreateToggle({
+    Name = "Fast Spin",
+    CurrentValue = false,
+    Flag = "Toggle1", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+    Callback = function(Value)
+          _G.autoTap = Value
+          autoTap()
+    end
+ })
+
+
+local Button = TeleportsTab:CreateButton({
+    Name = "One Piece",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1001
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Demon Slayer",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1002
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Chiikawa",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1005
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Naruto",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1003
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Dragon Ball",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1004
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Halloween Boss",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1006
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Button = TeleportsTab:CreateButton({
+    Name = "Brave Boss",
+    Callback = function()
+        local args = {
+            [1] = "Teleport",
+            [2] = 1007
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))        
+    end,
+})
+
+local Divider = MainTab:CreateDivider()
+
+local Paragraph = MainTab:CreateParagraph({Title = "How It Works", Content = "Head to packs and find the card you want to dupe, look for the # and the number after on the cards image than input it into the box."})
+
+
+-- Variable to store the input value
+local inputValue2 = 0  -- Default to 0 until user inputs a value
+
+-- Create the Input field for user input
+local Input = MainTab:CreateInput({
+    Name = "Card ID",
+    CurrentValue = "",
+    PlaceholderText = "Input",
+    RemoveTextAfterFocusLost = false,
+    Flag = "Input1",
+    Callback = function(Text)
+        -- The function that takes place when the input is changed
+        -- The variable (Text) is a string for the value in the text box
+        -- Convert the input text to a number and store it in inputValue
+        inputValue2 = tonumber(Text) or 0  -- Default to 0 if input is not a valid number
+    end,
+})
+
+-- Variable to store the input value
+local inputValue3 = 0  -- Default to 0 until user inputs a value
+
+-- Create the Input field for user input
+local Input = MainTab:CreateInput({
+    Name = "Amount",
+    CurrentValue = "",
+    PlaceholderText = "Input",
+    RemoveTextAfterFocusLost = false,
+    Flag = "Input1",
+    Callback = function(Text)
+        -- The function that takes place when the input is changed
+        -- The variable (Text) is a string for the value in the text box
+        -- Convert the input text to a number and store it in inputValue
+        inputValue3 = tonumber(Text) or 0  -- Default to 0 if input is not a valid number
+    end,
+})
+
+local Button = MainTab:CreateButton({
+    Name = "Dupe",
+    Callback = function()
+        local args = {
+            [1] = "SellCard",
+            [2] = inputValue2,
+            [3] = -inputValue3
+        }
+        
+        game:GetService("ReplicatedStorage"):WaitForChild("Remote"):WaitForChild("RemoteEvent"):FireServer(unpack(args))              
+    end
+})
